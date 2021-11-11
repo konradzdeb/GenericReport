@@ -2,14 +2,44 @@
 %
 \documentclass[12pt]{article}
 
-\title{
-	kz_algs_ds_assignment
-}
-\author{
-	Konrad Zdeb --- \texttt{konrad.zdeb@me.com}
-}
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+% Use if Arial font unavailable
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Geometry has to be loaded before the footer
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=20mm,
+ top=20mm,
+ bottom=20mm,
+ top=20mm
+ }
+
+\usepackage{lastpage} % for the last page number
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+% Add a line above footer
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+% Add line above footer
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[OR]{\thepage\ /\ \pageref{LastPage}}
+
+\title{Title of the Document}
+\author{Author}
+
 
 \begin{document}
+
+% \maketitle
+
+\section{Section}
+
+\subsection{Section two}
 
 Sample document
 
