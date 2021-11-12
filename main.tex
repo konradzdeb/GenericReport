@@ -20,8 +20,11 @@
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
 % Add line above footer
 \renewcommand{\headrulewidth}{0.4pt}
+% Define footer
 \fancyfoot[EL,OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
 \fancyfoot[ER,OL]{\footnotesize \runauthor}
+% Define header
+\fancyhead[EL, OR]{\runtitle}
 
 % Define style to be used for the first page
 \fancypagestyle{firststyle}
@@ -49,6 +52,9 @@
 \let\runtitle\@title
 \makeatother
 
+% Create line spacing
+\linespread{1.25}
+
 % Dummy text generation
 \usepackage{lipsum}  
 
@@ -56,9 +62,8 @@
 \begin{document}
 
 % Use special first page style on the first page
-\thispagestyle{firststyle}
 
-\maketitle\thispagestyle{fancy}
+\maketitle\thispagestyle{firststyle}
 
 \section{Section}
 
