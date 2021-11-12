@@ -1,6 +1,6 @@
 % vim:ft=tex:
 %
-\documentclass[12pt]{article}
+\documentclass[12pt, twoside]{article}
 
 \usepackage{fontspec}
 \setmainfont{Arial}
@@ -10,14 +10,7 @@
 % \renewcommand{\familydefault}{\sfdefault}
 
 % Geometry has to be loaded before the footer
-\usepackage{geometry}
- \geometry{
- a4paper,
- left=20mm,
- top=20mm,
- bottom=20mm,
- top=20mm
- }
+\usepackage[a4paper,left=20mm,top=20mm,bottom=20mm,top=20mm,bindingoffset=0mm]{geometry}
 
 \usepackage{lastpage} % for the last page number
 \usepackage{fancyhdr}
@@ -27,20 +20,58 @@
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
 % Add line above footer
 \renewcommand{\headrulewidth}{0.4pt}
-\fancyfoot[OR]{\thepage\ /\ \pageref{LastPage}}
+\fancyfoot[EL,OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
+\fancyfoot[ER,OL]{\footnotesize \runauthor}
 
-\title{Title of the Document}
-\author{Author}
+% Define style to be used for the first page
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \renewcommand{\headrulewidth}{0.0pt} % I would hope for this to delete header rule on the first page
+   \fancyfoot[OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
+}
+
+
+
+% Section font sizes
+\usepackage{sectsty}
+\sectionfont{\fontsize{14}{15}\selectfont}
+
+% Title page configuration
+\title{\vspace{-2cm}Title of the Document\vspace{-5mm}}
+\author{Author Name\vspace{-5mm}}
+\date{\today}
+
+
+% Store author and report title for headers
+\makeatletter
+\let\runauthor\@author
+\let\runtitle\@title
+\makeatother
+
+% Dummy text generation
+\usepackage{lipsum}  
 
 
 \begin{document}
 
-% \maketitle
+% Use special first page style on the first page
+\thispagestyle{firststyle}
+
+\maketitle\thispagestyle{fancy}
 
 \section{Section}
 
-\subsection{Section two}
+\subsection{SubSection One}
 
-Sample document
+\lipsum[2-4]
+
+\subsection{SubSection Two}
+
+\lipsum[3-5]
+
+\section{Section Two}
+
+\lipsum[1-5]
 
 \end{document}
