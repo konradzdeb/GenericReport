@@ -10,27 +10,29 @@
 % \renewcommand{\familydefault}{\sfdefault}
 
 % Geometry has to be loaded before the footer
-\usepackage[a4paper,left=20mm,top=20mm,bottom=20mm,top=20mm,bindingoffset=0mm]{geometry}
+\usepackage[a4paper,left=20mm,top=20mm,bottom=20mm,bindingoffset=0mm]{geometry}
 
 \usepackage{lastpage} % for the last page number
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
+
 % Add a line above footer
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
-% Add line above footer
-\renewcommand{\headrulewidth}{0.4pt}
 % Define footer
 \fancyfoot[EL,OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
 \fancyfoot[ER,OL]{\footnotesize \runauthor}
+
 % Define header
-\fancyhead[EL, OR]{\runtitle}
+\fancyhead[EL, OR]{\footnotesize \runtitle}
+% Add line above footer
+\renewcommand{\headrulewidth}{0.4pt}
 
 % Define style to be used for the first page
 \fancypagestyle{firststyle}
 {
    \fancyhf{}
-   \renewcommand{\headrulewidth}{0.0pt} % I would hope for this to delete header rule on the first page
+   \renewcommand{\headrulewidth}{0.0pt}
    \fancyfoot[OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
 }
 
@@ -41,16 +43,11 @@
 \sectionfont{\fontsize{14}{15}\selectfont}
 
 % Title page configuration
-\title{\vspace{-2cm}Title of the Document\vspace{-5mm}}
-\author{Author Name\vspace{-5mm}}
+\newcommand{\runtitle}{Title of the Document}
+\newcommand{\runauthor}{Author Name}
+\title{\vspace{-2cm}\runtitle\vspace{-5mm}}
+\author{\runauthor\vspace{-5mm}}
 \date{\today}
-
-
-% Store author and report title for headers
-\makeatletter
-\let\runauthor\@author
-\let\runtitle\@title
-\makeatother
 
 % Create line spacing
 \linespread{1.25}
