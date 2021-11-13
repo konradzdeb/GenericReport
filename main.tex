@@ -36,6 +36,35 @@
    \fancyfoot[OR]{\footnotesize \thepage\ /\ \pageref{LastPage}}
 }
 
+% Code snippet configuration
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{reportcodeblock}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=reportcodeblock}
 
 
 % Section font sizes
@@ -67,6 +96,8 @@
 \subsection{SubSection One}
 
 \lipsum[2-4]
+
+\lstinputlisting[language=Java, label=some-code,caption=Some Code]{exampleClass.java}
 
 \subsection{SubSection Two}
 
